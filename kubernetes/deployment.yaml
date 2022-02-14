@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cowsay
+  labels:
+    app: cowsay
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cowsay
+  template:
+    metadata:
+      labels:
+        app: cowsay
+    spec:
+      containers:
+      - name: cowsay
+        image: lisborg/cowsay-web-app@sha256:cbd52738f720d296b2d91bfb131e0088042415f81d1e45743fd57871a1495241
+        ports:
+        - containerPort: 8080
